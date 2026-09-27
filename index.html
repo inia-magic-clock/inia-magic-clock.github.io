@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="color-scheme" content="only light">
+<meta name="color-scheme" content="light dark">
 <title>Magic Clock — Stop procrastinating. Earn your breaks.</title>
 <meta name="description" content="A focus timer that pays you back: ten minutes of break for every twenty-five you work. Teach your brain that reward comes after the work.">
 <link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">
@@ -13,7 +13,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-:root { color-scheme: only light;
+:root { color-scheme: light dark;
   --text: #2E365A; --muted: #5C678F; --faint: #8C95B6; --rule: #E6E9F1; --soft: #F5F6FA;
   --focus: #0050D1; --break: #0B8F12; --owe: #C80000;
   --ring: conic-gradient(from 95deg, #13D0D9 0%, #17E6B8 9%, #2F9CFF 25%, #4B3EF5 33%, #B62BF0 45%, #F72FD1 57%, #C13BE0 67%, #4B3EF5 75%, #1D8CF8 89%, #13D0D9 100%);
@@ -106,6 +106,23 @@ footer a { text-decoration: none; }
   .breathe { font-size: 32px; }
   footer { flex-direction: column; gap: 8px; }
 }
+
+/* Dark mode, following the system: the same page at night. Deep navy rather than black, so the
+   ring still glows. The ring image is transparent around the ring, so it is the same mark on both. */
+@media (prefers-color-scheme: dark) {
+  :root { --text: #E4E7F3; --muted: #A1A9C9; --faint: #7D87AC; --rule: #252B48; --soft: #161B33; --focus: #5B9BFF;
+    /* The name's sweep, each stop lifted to the ring's brighter tones: the deep violet sinks into the navy. */
+    --word: linear-gradient(90deg, #17E6B8 0%, #3FB0FF 25%, #7F74FF 50%, #C86BFF 76%, #FF4FDB 100%); }
+  body { background: #0E1226; }
+  b { color: #FFFFFF; }
+  article p, .rules li { color: #C3C9E0; }
+  h1, h2 { color: #FFFFFF; }
+  .phone { background: #1B2140; box-shadow: 0 0 0 1px #2A3152, 0 24px 48px -24px rgba(0,0,0,.7); }
+  .chip { box-shadow: 0 6px 14px -8px rgba(0,0,0,.8); }
+  .ghost { color: var(--faint); border-color: #4A5278; }
+  .arrow { background: #6B7599; } .arrow::after { border-left-color: #6B7599; }
+  .play { background: #FFFFFF; color: #141A33; box-shadow: 0 10px 24px -12px rgba(0,0,0,.8); }
+}
 </style>
 </head>
 <body>
@@ -118,7 +135,7 @@ footer a { text-decoration: none; }
     <img class="mark emblem" src="img/ring.png" alt="">
     <b class="word name">Magic Clock</b>
   </div>
-  <h1 style="color: #141A33">Stop procrastinating.<br>Earn your breaks.</h1>
+  <h1>Stop procrastinating.<br>Earn your breaks.</h1>
 
   <p>If you sit down to something you know will be boring, it creates a small amount of stress.</p>
 
