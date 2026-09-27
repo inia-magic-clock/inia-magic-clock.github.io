@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="color-scheme" content="light dark">
+<meta name="color-scheme" content="only light">
 <title>Magic Clock — Stop procrastinating. Earn your breaks.</title>
 <meta name="description" content="A focus timer that pays you back: ten minutes of break for every twenty-five you work. Teach your brain that reward comes after the work.">
 <link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">
@@ -13,7 +13,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-:root { color-scheme: light dark;
+:root { color-scheme: only light;
   --text: #2E365A; --muted: #5C678F; --faint: #8C95B6; --rule: #E6E9F1; --soft: #F5F6FA;
   --focus: #0050D1; --break: #0B8F12; --owe: #C80000;
   --ring: conic-gradient(from 95deg, #13D0D9 0%, #17E6B8 9%, #2F9CFF 25%, #4B3EF5 33%, #B62BF0 45%, #F72FD1 57%, #C13BE0 67%, #4B3EF5 75%, #1D8CF8 89%, #13D0D9 100%);
@@ -30,17 +30,18 @@ b { font-weight: 500; color: var(--text); }
 
 .top { max-width: 1080px; margin: 0 auto; padding: 0 24px; height: 76px; display: flex; align-items: center; justify-content: flex-end; }
 .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; }
-/* The ring is the feature graphic's own, cut from it, so the mark is the same everywhere.
-   The image carries its glow: 242 px for a 215 px ring, hence the size and the pull-back. */
-.mark { display: block; width: 34px; height: 34px; margin: -2px; flex: none; }
-.mark.big { width: 108px; height: 108px; margin: -6px; }
+/* The mark is the app's own button, captured from the app at 2x with the sweep's pink on the left
+   like the app icon, and clear around the ring. The image carries its glow: the ring is 80.4% of
+   it, hence the size and the pull-back, which keep the ring itself at 30, 44 and 96 px. */
+.mark { display: block; width: 37px; height: 37px; margin: -3.5px; flex: none; }
+.mark.big { width: 119px; height: 119px; margin: -11.5px; }
 .brand b { font-size: 21px; letter-spacing: -.01em; }
 .top nav a { font-size: 16px; font-weight: 400; color: var(--muted); text-decoration: none; }
 
 article { max-width: 680px; margin: 0 auto; padding: 24px 24px 40px; }
 /* A small ring and the name at the top left, a big title flush with the text: option C. */
 .masthead { display: flex; align-items: center; gap: 14px; margin: 8px 0 56px; }
-.mark.emblem { width: 50px; height: 50px; margin: -3px; }
+.mark.emblem { width: 55px; height: 55px; margin: -5.5px; }
 .name { font-size: 30px; font-weight: 500; letter-spacing: -.01em; }
 .kicker { font-size: 13px; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; color: var(--muted); margin: 0 0 18px; }
 h1 { font-weight: 500; font-size: 62px; line-height: 1.06; letter-spacing: -.03em; margin: 0 0 48px; color: #141A33; text-align: left; }
@@ -107,14 +108,15 @@ footer a { text-decoration: none; }
   footer { flex-direction: column; gap: 8px; }
 }
 
-/* Dark mode, following the system: the same page at night. Deep navy rather than black, so the
-   ring still glows. The ring image is transparent around the ring, so it is the same mark on both. */
-@media (prefers-color-scheme: dark) {
-  :root { --text: #E4E7F3; --muted: #A1A9C9; --faint: #7D87AC; --rule: #252B48; --soft: #161B33; --focus: #5B9BFF;
+/* Dark mode, off: the page is always light (the user chose that), and nothing sets
+   data-theme yet. Kept for a toggle: the same page at night. Deep navy rather than black, so the
+   ring still glows. The ring image is clear around the ring, so it is the same mark on both. */
+html[data-theme="dark"] {
+  & { --text: #E4E7F3; --muted: #A1A9C9; --faint: #7D87AC; --rule: #252B48; --soft: #161B33; --focus: #5B9BFF;
     /* The name's sweep, each stop lifted to the ring's brighter tones: the deep violet sinks into the navy. */
     --word: linear-gradient(90deg, #17E6B8 0%, #3FB0FF 25%, #7F74FF 50%, #C86BFF 76%, #FF4FDB 100%); }
   body { background: #0E1226; }
-  b { color: #FFFFFF; }
+  b:not(.word) { color: #FFFFFF; }
   article p, .rules li { color: #C3C9E0; }
   h1, h2 { color: #FFFFFF; }
   .phone { background: #1B2140; box-shadow: 0 0 0 1px #2A3152, 0 24px 48px -24px rgba(0,0,0,.7); }

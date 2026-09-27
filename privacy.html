@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="color-scheme" content="light dark">
+<meta name="color-scheme" content="only light">
 <title>Privacy Policy — Magic Clock</title>
 <link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">
 <link rel="icon" href="icon-192.png" sizes="192x192" type="image/png">
@@ -12,7 +12,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 :root {
-  color-scheme: light dark; --text:#3A4263; --muted:#6A759F; --accent:#0050D1; --bg:#FFFFFF; --rule:#E6E9F1; }
+  color-scheme: only light; --text:#3A4263; --muted:#6A759F; --accent:#0050D1; --bg:#FFFFFF; --rule:#E6E9F1; }
 html { background: var(--bg); }
 body { margin: 0 auto; max-width: 720px; padding: 48px 20px 80px; font: 300 17px/1.6 "Outfit", system-ui, sans-serif; color: var(--text); background: var(--bg); }
 h1 { font-weight: 500; font-size: 34px; line-height: 1.2; margin: 0 0 8px; letter-spacing: -.01em; }
@@ -20,8 +20,9 @@ h2 { font-weight: 500; font-size: 21px; margin: 40px 0 8px; padding-top: 24px; b
 strong { font-weight: 500; }
 a { color: var(--accent); }
 ul { padding-left: 22px; } li { margin: 6px 0; }
-@media (prefers-color-scheme: dark) {
-  :root { --text:#C3C9E0; --muted:#A1A9C9; --accent:#5B9BFF; --bg:#0E1226; --rule:#252B48; }
+/* Dark mode, off: the page is always light; kept for a toggle. */
+html[data-theme="dark"] {
+  & { --text:#C3C9E0; --muted:#A1A9C9; --accent:#5B9BFF; --bg:#0E1226; --rule:#252B48; }
   h1, h2, strong { color: #FFFFFF; }
 }
 .back { display: inline-block; margin-bottom: 32px; color: var(--muted); text-decoration: none; font-weight: 400; }
