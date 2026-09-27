@@ -87,7 +87,7 @@ h1 { font-weight: 500; font-size: clamp(34px, 9vw, 76px); overflow-wrap: break-w
 .phone.sm img { border-radius: 28px; }
 
 /* Sections */
-section { padding: 96px 0; }
+section { padding: 96px 0; scroll-margin-top: 68px; }
 section.soft { background: var(--bg-soft); }
 h2 { font-weight: 500; font-size: clamp(32px, 4vw, 46px); line-height: 1.1; letter-spacing: -.02em; margin: 0 0 20px; }
 .prose { max-width: 38em; }
@@ -295,5 +295,17 @@ footer nav { gap: 24px; font-size: 15px; flex-wrap: wrap; }
   </div>
 </footer>
 
+<script>
+// The menu scrolls to its section without writing #how or #rules into the address, so a reload
+// starts at the top instead of jumping back down to wherever the last menu click went.
+document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+  a.addEventListener('click', function (e) {
+    var t = document.querySelector(a.getAttribute('href'));
+    if (!t) return;
+    e.preventDefault();
+    t.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+});
+</script>
 </body>
 </html>
