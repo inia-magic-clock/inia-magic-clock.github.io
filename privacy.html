@@ -31,7 +31,7 @@ html[data-theme="dark"] {
 <body>
 <a class="back" href="./">← Magic Clock</a>
 <h1>Magic Clock Privacy Policy</h1>
-<p>Effective date: 28 September 2026</p>
+<p>Effective date: 29 September 2026</p>
 <p>Magic Clock ("the app", package name com.inia.magicclock.free) is developed by inia ("we",
 "us") and distributed on Google Play.</p>
 <p>Contact: inia.devel@gmail.com</p>
@@ -39,7 +39,8 @@ html[data-theme="dark"] {
 <p>Magic Clock is a focus/break timer that runs entirely on your device. We do not require an
 account and we never see your sessions, streaks or settings — they are stored only on your
 phone. The app shows Google AdMob advertisements and sends anonymous usage statistics to Google
-Firebase Analytics, as described in Sections 3 and 5.</p>
+Firebase Analytics, as described in Sections 3 and 5. If you turn on extreme mode, the app also
+checks which app is open while you focus; that never leaves your phone either (Section 2).</p>
 <h2>2. Permissions the app uses, and why</h2>
 <ul>
 <li><strong>Foreground service</strong> — keeps the timer accurate while the app is in the background.</li>
@@ -47,6 +48,20 @@ Firebase Analytics, as described in Sections 3 and 5.</p>
   screen.</li>
 <li><strong>Internet and advertising ID</strong> — required by Google AdMob and Firebase Analytics.</li>
 </ul>
+<p>Extreme mode (Magic Clock Pro) blocks the apps you choose while you focus. It is off until you
+turn it on, and it needs two more permissions, which Android asks you to grant in its own
+settings:</p>
+<ul>
+<li><strong>Usage access</strong> — while focus time is counting, the app checks which app is in front, so it
+  can block the ones you chose. It reads only which app is open, never what you do in it. It
+  does not look at all on a break, while paused, or when no session is running. What it sees is
+  not stored, and never leaves your phone.</li>
+<li><strong>Display over other apps</strong> — lets the app show its blocking screen over an app you chose to
+  block. It shows nothing else over other apps.</li>
+</ul>
+<p>To let you choose, the app lists the apps on your phone that have a home-screen icon. The list
+and your choice stay on your phone. You can withdraw either permission at any time in Android's
+Settings → Apps → Special app access, and turning extreme mode off stops the checking at once.</p>
 <h2>3. Advertising</h2>
 <p>The app shows a banner ad while a session is running, during both focus and break. No ads are
 shown on the start screen or the session summary, and none at all once Magic Clock Pro is
@@ -79,8 +94,8 @@ Google processes it under the
 <a href="https://firebase.google.com/support/privacy">Firebase privacy and security terms</a>; per-user
 data is retained for up to 14 months.</p>
 <p>We have no account system, no crash reporting and no servers of our own. Your session history,
-daily focus totals, streaks and settings are stored in the app's private storage on your
-device. They are never uploaded. Uninstalling the app deletes them.</p>
+daily focus totals, streaks, settings and the apps chosen for extreme mode are stored in the
+app's private storage on your device. They are never uploaded. Uninstalling the app deletes them.</p>
 <h2>6. Your choices</h2>
 <p>You can decline personalised ads in the consent form, or reset your advertising ID in
 Android's Settings → Google → Ads. If you have a question about data, write to the address in
